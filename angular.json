@@ -40,17 +40,7 @@
               "node_modules/assets/css/style.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/assets/vendor/bootstrap/js/bootstrap.bundle.js",
-              "node_modules/assets/vendor/php-email-form/validate.js",
-              "node_modules/assets/vendor/quill/quill.min.js",
-              "node_modules/assets/vendor/tinymce/tinymce.min.js",
-              "node_modules/assets/vendor/simple-datatables/simple-datatables.js",
-              "node_modules/assets/vendor/chart.js/chart.min.js",
-              "node_modules/assets/vendor/apexcharts/apexcharts.min.js",
-              "node_modules/assets/vendor/echarts/echarts.min.js",
-              "node_modules/assets/js/main.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
