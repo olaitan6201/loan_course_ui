@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.sidebar-nav .nav-item.active .nav-link {
+  color: #4154f1;
+  background: #f6f9ff;
+}
