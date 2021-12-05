@@ -3,3 +3,30 @@
   color: #4154f1;
   background: #f6f9ff;
 }
+
+textarea{
+  resize: none;
+}
+
+.form-group{
+  margin: 0 0 20px 0;
+}
+
+.form-group label{
+  font-size: 13px;
+  font-weight: bold;
+}
+
+input.ng-invalid.ng-touched, 
+textarea.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+input.ng-valid, 
+textarea.ng-valid{
+    border: 1px solid green;
+}
+
+table input, table button{
+  margin: 3px;
+}
