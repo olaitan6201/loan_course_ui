@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      Add New Customer
+      <a routerLink="/customers" class="btn btn-primary btn-sm w-25 float-end">
+        <i class="bi bi-eye-fill"></i> View All Customers
+      </a>
+    </h5>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
+      <div class="form-group">
+        <div class="alert alert-success" *ngIf="message.status==200">{{message.text}}</div>
+        <div class="alert alert-danger" *ngIf="message.status!=200 && message.status!=0">{{message.text}}</div>
+      </div>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" id="firstName" class="form-control"/>
+        <small class="text-danger" *ngIf="!customerForm.get('firstName').valid && customerForm.get('firstName').touched">This field is required</small>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" id="lastName" class="form-control"/>
+        <small class="text-danger" *ngIf="!customerForm.get('lastName').valid && customerForm.get('lastName').touched">This field is required</small>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" formControlName="phoneNumber" id="phoneNumber" class="form-control"/>
+        <small class="text-danger" *ngIf="!customerForm.get('phoneNumber').valid && customerForm.get('phoneNumber').touched">This field is required</small>
+      </div>
+      <div class="form-group">
+        <label for="emailAddress">Email Address</label>
+        <input type="email" formControlName="emailAddress" id="emailAddress" class="form-control"/>
+        <small class="text-danger" *ngIf="!customerForm.get('emailAddress').valid && customerForm.get('emailAddress').touched">This field is required</small>
+      </div>
+      <div class="form-group">
+        <label for="dept">Address</label>
+        <textarea formControlName="dept" id="dept" class="form-control"></textarea>
+        <small class="text-danger" *ngIf="!customerForm.get('dept').valid && customerForm.get('dept').touched">This field is required</small>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-sm btn-primary w-100"/>
+      </div>
+    </form>
+  </div>
+</div>
