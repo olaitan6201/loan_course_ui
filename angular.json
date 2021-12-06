@@ -123,5 +123,10 @@
       }
     }
   },
+  "schematics": {
+    "@schematics/angular:component": {
+      "skipTests": true
+    }
+  },
   "defaultProject": "loans-ui"
 }
