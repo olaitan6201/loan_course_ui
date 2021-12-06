@@ -39,7 +39,6 @@ export class ListCustomersComponent implements OnInit {
 
       
       this.navPages = Array(this.pageCount).fill(0).map((x,i)=>i+1);
-      console.log(this.pageCount, this.navPages);
     });
   }
 

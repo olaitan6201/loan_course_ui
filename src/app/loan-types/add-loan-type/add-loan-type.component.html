@@ -1,0 +1,128 @@
+<div class="row">
+
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Create Loan Plan</h5>
+
+        <form [formGroup]="loanTypeForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="alert alert-success" *ngIf="message.status==200">{{message.text}}</div>
+            <div class="alert alert-danger" *ngIf="message.status!=200 && message.status!=0">{{message.text}}</div>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name"/>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" formControlName="description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-sm btn-primary w-25 float-end">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          All Loan Plans
+          <input type="search" class="form-control w-25 float-end" (input)="searchLoanTypes()" [(ngModel)]="searchKeyword">
+        </h5>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Date Created</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let loantype of ltList">
+                <td>{{loantype._id}}</td>
+                <td>{{loantype.name}}</td>
+                <td>{{loantype.date_created}}</td>
+                <td>
+                  <a [routerLink]="['../edit', loantype._id]" class="text-white btn btn-warning btn-sm">
+                    <i class="bi bi-eye-fill"></i> Edit
+                  </a>
+                  <button type="button" (click)="deleteLoanType(loantype._id)" class="btn btn-danger btn-sm">
+                    <i class="bi bi-bucket"></i> Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Navigations  -->
+          <ng-template #nodata>
+              <small>No data found</small>
+          </ng-template>
+          <div style="display: flex!important;" *ngIf="pageCount >= 1; else nodata">
+            <small style="flex: 40%!important;">Showing data {{from}} to {{to}} of {{count}}</small>
+            {{page}}
+      
+            <ng-template #nagivate>
+              <nav aria-label="Page navigation example float-end" style="flex: 50%!important;">
+                <ul class="pagination float-end">
+                  <li class="page-item">
+                    <a class="page-link" (click)="goto(page-1)" aria-label="Previous" *ngIf="page > 1">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    <a class="page-link" aria-label="Previous" *ngIf="page == 1">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  
+                    <li class="page-item" *ngFor="let page of navPages"><a class="page-link" (click)="goto(page)">{{page}}</a></li>
+                  <li class="page-item">
+                    <span class="page-link" aria-label="Next" *ngIf="page >= pageCount">
+                      <span aria-hidden="true">&raquo;</span>
+                    </span>
+                    <a class="page-link" (click)="goto(+page+1)" aria-label="Next" *ngIf="page < pageCount">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </ng-template>
+            <nav aria-label="Page navigation example float-end" style="flex: 50%!important;" *ngIf="pageCount > 5; else nagivate">
+              <ul class="pagination float-end">
+                <li class="page-item">
+                  <a class="page-link" (click)="goto(page-1)" aria-label="Previous" *ngIf="page > 1">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                  <a class="page-link" aria-label="Previous" *ngIf="page == 1">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" (click)="goto(1)">1</a></li>
+                <li class="page-item"><a class="page-link" (click)="goto(2)">2</a></li>
+                <li class="page-item"><span class="page-link">...</span></li>
+                  <li class="page-item"><a class="page-link" (click)="goto(pageCount-1)">{{pageCount-1}}</a></li>
+                  <li class="page-item"><a class="page-link" (click)="goto(pageCount)">{{pageCount}}</a></li>
+                <li class="page-item">
+                  <span class="page-link" aria-label="Next" *ngIf="page >= pageCount">
+                    <span aria-hidden="true">&raquo;</span>
+                  </span>
+                  <a class="page-link" (click)="goto(+page+1)" aria-label="Next" *ngIf="page < pageCount">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
