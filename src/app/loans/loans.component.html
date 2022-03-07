@@ -1,1 +1,35 @@
-<p>loans works!</p>
+<section class="section">
+  <div class="row">
+    
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          Loans
+          <!-- <a class="btn btn-primary btn-sm">Create New Invoice</a> -->
+        </h5>
+        <table class="table datatable">
+          <thead>
+            <tr>
+              <th>Loan ID</th>
+              <th>Loan Name</th>
+              <th>Loan Type</th>
+              <th>Loan Amount</th>
+              <th>Pending Amount</th>
+              <th>Loan Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loan of loanList">
+              <td><a [routerLink]="['view', loan._id]">{{loan._id}}</a></td>
+              <td>{{loan.loanName}}</td>
+              <td>{{loan.loanType}}</td>
+              <td>&#8358;{{number_format(loan.loanAmount)}}</td>
+              <td>&#8358;{{number_format(getPendingAmount(loan.pendingAmount, loan.loanAmount, loan.loanStatus))}}</td>
+              <td>{{getLoanStatus(loan.loanStatus)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'loan-types', loadChildren: () => import('./loan-types/loan-types.module').then(m => m.LoanTypesModule) },
   { path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule) },
   { path: 'activity-log', loadChildren: () => import('./audit-log/audit-log.module').then(m => m.AuditLogModule) },
-  { path: 'customer_loans', loadChildren: () => import('./customer-loans/customer-loans.module').then(m => m.CustomerLoansModule) },
   { path: '**', component: PageNotFoundComponent}
 ];
 
