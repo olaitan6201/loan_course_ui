@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: NewUserComponent},
   { path: 'forgot-password', component: ForgotComponent},
