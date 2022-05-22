@@ -1,9 +1,9 @@
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:3000/',
-  CUSTOMER_BASE_URL: 'http://localhost:3000/customers/',
-  LOAN_TYPE_BASE_URL: 'http://localhost:3000/loan_types/',
-  LOAN_BASE_URL: 'http://localhost:3000/loans/',
+  BASE_URL: 'https://loan-course-api.herokuapp.com/',
+  CUSTOMER_BASE_URL: 'https://loan-course-api.herokuapp.com/customers/',
+  LOAN_TYPE_BASE_URL: 'https://loan-course-api.herokuapp.com/loan_types/',
+  LOAN_BASE_URL: 'https://loan-course-api.herokuapp.com/loans/',
   CUSTOMER : {
     GET_ALL_CUSTOMERS: 'list',
     GET_CUSTOMER_DETAILS: 'view',
